@@ -103,7 +103,7 @@
 
     <!-- Top Corporate Info Bar -->
     <div class="bg-slate-900 text-slate-300 text-xs border-b border-slate-800">
-        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 py-2.5 flex flex-wrap justify-between items-center gap-3">
+        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-wrap justify-between items-center gap-3">
             <div class="flex items-center space-x-6 flex-wrap">
                 <a href="https://maps.google.com/?q=Upasana+1st+Avenue,+Ajmer+Road,+Sodala,+Jaipur,+Rajasthan+302006" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-1.5 text-amber-400 hover:text-amber-300 font-medium transition">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
@@ -139,56 +139,56 @@
 
     <!-- Main Navigation Bar -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs transition duration-200">
-        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12">
-            <div class="flex justify-between items-center h-20 sm:h-24">
+        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20 sm:h-24 gap-4">
                 <!-- Brand Logo Component -->
-                <a href="{{ route('home') }}" class="group py-2 flex items-center">
+                <a href="{{ route('home') }}" class="group py-2 flex items-center shrink-0">
                     @if($siteLogoLight)
-                        <img src="{{ asset('storage/' . $siteLogoLight) }}" alt="DC Equipment" class="h-14 sm:h-16 w-auto object-contain" />
+                        <img src="{{ asset('storage/' . $siteLogoLight) }}" alt="DC Equipment" class="h-10 sm:h-11 w-auto object-contain" />
                     @else
-                        <x-logo variant="light" height="h-14 sm:h-16" />
+                        <x-logo variant="light" height="h-10 sm:h-11" />
                     @endif
                 </a>
 
                 <!-- Desktop Navigation Menu -->
-                <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2 font-medium text-sm text-slate-700">
-                    <a href="{{ route('home') }}" class="px-3 py-2 rounded-lg transition {{ request()->routeIs('home') ? 'text-blue-600 bg-blue-50/80 font-semibold' : 'hover:text-blue-600 hover:bg-slate-100/60' }}">
+                <nav class="hidden xl:flex items-center space-x-5 2xl:space-x-6 font-medium text-sm text-slate-700">
+                    <a href="{{ route('home') }}" class="whitespace-nowrap px-1.5 py-1 rounded-md transition-colors {{ request()->routeIs('home') ? 'text-blue-600 bg-blue-50/80 font-semibold' : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50' }}">
                         Home
                     </a>
-                    <a href="{{ route('about') }}" class="px-3 py-2 rounded-lg transition {{ request()->routeIs('about') ? 'text-blue-600 bg-blue-50/80 font-semibold' : 'hover:text-blue-600 hover:bg-slate-100/60' }}">
+                    <a href="{{ route('about') }}" class="whitespace-nowrap px-1.5 py-1 rounded-md transition-colors {{ request()->routeIs('about') ? 'text-blue-600 bg-blue-50/80 font-semibold' : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50' }}">
                         About Us
                     </a>
-                    <a href="{{ route('products') }}" class="px-3 py-2 rounded-lg transition {{ request()->routeIs('products*') ? 'text-blue-600 bg-blue-50/80 font-semibold' : 'hover:text-blue-600 hover:bg-slate-100/60' }}">
+                    <a href="{{ route('products') }}" class="whitespace-nowrap px-1.5 py-1 rounded-md transition-colors {{ request()->routeIs('products*') ? 'text-blue-600 bg-blue-50/80 font-semibold' : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50' }}">
                         Equipment Spares
                     </a>
-                    <a href="{{ route('chemicals') }}" class="px-3 py-2 rounded-lg transition relative {{ request()->routeIs('chemicals*') ? 'text-blue-600 bg-blue-50/80 font-semibold' : 'hover:text-blue-600 hover:bg-slate-100/60' }}">
+                    <a href="{{ route('chemicals') }}" class="whitespace-nowrap px-1.5 py-1 rounded-md transition-colors relative inline-flex items-center {{ request()->routeIs('chemicals*') ? 'text-blue-600 bg-blue-50/80 font-semibold' : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50' }}">
                         <span>DCP Chemicals</span>
-                        <span class="ml-1 inline-flex items-center px-1.5 py-0.2 rounded text-[10px] font-bold bg-amber-100 text-amber-800">DCP</span>
+                        <span class="ml-1.5 inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800 tracking-wider">DCP</span>
                     </a>
-                    <a href="{{ route('services') }}" class="px-3 py-2 rounded-lg transition {{ request()->routeIs('services*') ? 'text-blue-600 bg-blue-50/80 font-semibold' : 'hover:text-blue-600 hover:bg-slate-100/60' }}">
+                    <a href="{{ route('services') }}" class="whitespace-nowrap px-1.5 py-1 rounded-md transition-colors {{ request()->routeIs('services*') ? 'text-blue-600 bg-blue-50/80 font-semibold' : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50' }}">
                         Services & Workshop
                     </a>
-                    <a href="{{ route('projects') }}" class="px-3 py-2 rounded-lg transition {{ request()->routeIs('projects') ? 'text-blue-600 bg-blue-50/80 font-semibold' : 'hover:text-blue-600 hover:bg-slate-100/60' }}">
+                    <a href="{{ route('projects') }}" class="whitespace-nowrap px-1.5 py-1 rounded-md transition-colors {{ request()->routeIs('projects') ? 'text-blue-600 bg-blue-50/80 font-semibold' : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50' }}">
                         Clients & Projects
                     </a>
-                    <a href="{{ route('blog') }}" class="px-3 py-2 rounded-lg transition {{ request()->routeIs('blog*') ? 'text-blue-600 bg-blue-50/80 font-semibold' : 'hover:text-blue-600 hover:bg-slate-100/60' }}">
+                    <a href="{{ route('blog') }}" class="whitespace-nowrap px-1.5 py-1 rounded-md transition-colors {{ request()->routeIs('blog*') ? 'text-blue-600 bg-blue-50/80 font-semibold' : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50' }}">
                         Blog & Insights
                     </a>
-                    <a href="{{ route('contact') }}" class="px-3 py-2 rounded-lg transition {{ request()->routeIs('contact') ? 'text-blue-600 bg-blue-50/80 font-semibold' : 'hover:text-blue-600 hover:bg-slate-100/60' }}">
+                    <a href="{{ route('contact') }}" class="whitespace-nowrap px-1.5 py-1 rounded-md transition-colors {{ request()->routeIs('contact') ? 'text-blue-600 bg-blue-50/80 font-semibold' : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50' }}">
                         Contact
                     </a>
                 </nav>
 
                 <!-- Header Actions -->
-                <div class="hidden sm:flex items-center space-x-3">
-                    <a href="{{ route('contact') }}#quote-form" class="inline-flex items-center px-4 py-2.5 rounded-lg text-sm font-bold bg-gradient-to-r from-blue-700 to-blue-600 text-white shadow-md hover:from-blue-800 hover:to-blue-700 hover:shadow-lg transition-all transform active:scale-95">
-                        <svg class="w-4 h-4 mr-2 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                <div class="hidden sm:flex items-center shrink-0">
+                    <a href="{{ route('contact') }}#quote-form" class="inline-flex items-center whitespace-nowrap px-4 py-2.5 rounded-lg text-sm font-bold bg-gradient-to-r from-blue-700 to-blue-600 text-white shadow-md hover:from-blue-800 hover:to-blue-700 hover:shadow-lg transition-all transform active:scale-95">
+                        <svg class="w-4 h-4 mr-2 text-amber-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
                         <span>Request a Quote</span>
                     </a>
                 </div>
 
                 <!-- Mobile Hamburger Button -->
-                <div class="lg:hidden flex items-center">
+                <div class="xl:hidden flex items-center">
                     <button @click="mobileMenuOpen = !mobileMenuOpen" type="button" class="p-2 rounded-lg text-slate-700 hover:text-blue-600 hover:bg-slate-100 focus:outline-hidden" aria-label="Toggle menu">
                         <svg x-show="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                         <svg x-show="mobileMenuOpen" x-cloak class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -198,7 +198,7 @@
         </div>
 
         <!-- Mobile Drawer Menu -->
-        <div x-show="mobileMenuOpen" x-cloak @click.away="mobileMenuOpen = false" class="lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-2 shadow-xl">
+        <div x-show="mobileMenuOpen" x-cloak @click.away="mobileMenuOpen = false" class="xl:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-2 shadow-xl">
             <a href="{{ route('home') }}" class="block px-3 py-2 rounded-lg font-medium {{ request()->routeIs('home') ? 'bg-blue-50 text-blue-600 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">Home</a>
             <a href="{{ route('about') }}" class="block px-3 py-2 rounded-lg font-medium {{ request()->routeIs('about') ? 'bg-blue-50 text-blue-600 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">About Us</a>
             <a href="{{ route('products') }}" class="block px-3 py-2 rounded-lg font-medium {{ request()->routeIs('products*') ? 'bg-blue-50 text-blue-600 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">Equipment Spares</a>
@@ -224,7 +224,7 @@
     <!-- Global Flash Notification -->
     @if(session('success'))
         <div class="bg-emerald-600 text-white py-3 px-4 shadow-md sticky top-20 z-40" x-data="{ show: true }" x-show="show">
-            <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between">
+            <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
                 <div class="flex items-center space-x-2 text-sm font-medium">
                     <svg class="w-5 h-5 text-emerald-200 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                     <span>{{ session('success') }}</span>
@@ -241,7 +241,7 @@
 
     <!-- Corporate Industrial Footer -->
     <footer class="bg-slate-950 text-slate-400 pt-16 pb-12 border-t border-slate-900">
-        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12">
+        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-900">
                 <!-- Col 1: Brand & Heritage -->
                 <div class="lg:col-span-2 space-y-4">
