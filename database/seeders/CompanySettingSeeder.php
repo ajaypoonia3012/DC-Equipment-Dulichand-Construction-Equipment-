@@ -27,8 +27,8 @@ class CompanySettingSeeder extends Seeder
             ['key' => 'phone_secondary', 'group' => 'contact', 'label' => 'Secondary Phone / WhatsApp', 'value' => '+91 86969 62600', 'type' => 'phone'],
             ['key' => 'email_primary', 'group' => 'contact', 'label' => 'Primary Email', 'value' => 'info@dcequipment.in', 'type' => 'email'],
             ['key' => 'email_sales', 'group' => 'contact', 'label' => 'Sales Email', 'value' => 'sales@dcequipment.in', 'type' => 'email'],
-            ['key' => 'working_hours', 'group' => 'contact', 'label' => 'Business Hours', 'value' => 'Monday - Saturday: 9:00 AM - 7:00 PM (Emergency breakdown hotline active 24/7)', 'type' => 'text'],
-            ['key' => 'google_maps_embed', 'group' => 'contact', 'label' => 'Google Maps Embed URL', 'value' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14234.341775836262!2d75.7629631!3d26.8848777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db444fb9a5723%3A0xc3f1245e31704aa8!2sUpasana%201st%20Avenue%2C%20Ajmer%20Rd%2C%20Jaipur%2C%20Rajasthan%20302006!5e0!3m2!1sen!2sin!4v1700000000000', 'type' => 'text'],
+            ['key' => 'google_maps_embed', 'group' => 'contact', 'label' => 'Google Maps Embed URL', 'value' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.4239824619!2d75.76018!3d26.88934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db4530263c915%3A0xc023c02d1a3c77eb!2sUpasana%201st%20Avenue%2C%20Ajmer%20Rd%2C%20Sodala%2C%20Jaipur%2C%20Rajasthan%20302006!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin', 'type' => 'text'],
+            ['key' => 'google_maps_link', 'group' => 'contact', 'label' => 'Google Maps Link', 'value' => 'https://maps.google.com/?q=Upasana+1st+Avenue,+Ajmer+Road,+Sodala,+Jaipur,+Rajasthan+302006', 'type' => 'text'],
             
             // Statistics / Key Metrics
             ['key' => 'stat_experience_years', 'group' => 'stats', 'label' => 'Years of Operational Excellence', 'value' => '8+', 'type' => 'text'],

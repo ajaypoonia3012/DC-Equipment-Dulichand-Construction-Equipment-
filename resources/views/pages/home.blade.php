@@ -401,15 +401,23 @@
 
                 <!-- Right Side: Contact & Map Preview -->
                 <div class="bg-slate-900 text-white rounded-2xl p-8 border border-slate-800 relative overflow-hidden shadow-xl">
-                    <div class="mb-6">
-                        <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">Corporate Headquarters</span>
-                        <h3 class="text-2xl font-black text-white mt-1">Visit Our Jaipur Facility</h3>
-                        <p class="text-slate-400 text-xs mt-1">Upasana 1st Avenue, Ajmer Road, Jaipur, Rajasthan</p>
+                    <div class="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                        <div>
+                            <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">Corporate Headquarters</span>
+                            <h3 class="text-2xl font-black text-white mt-1">Visit Our Jaipur Facility</h3>
+                            <a href="https://maps.google.com/?q=Upasana+1st+Avenue,+Ajmer+Road,+Sodala,+Jaipur,+Rajasthan+302006" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-amber-400 text-xs mt-1 block transition">
+                                Upasana 1st Avenue, Ajmer Road, Jaipur, Rajasthan
+                            </a>
+                        </div>
+                        <a href="https://maps.google.com/?q=Upasana+1st+Avenue,+Ajmer+Road,+Sodala,+Jaipur,+Rajasthan+302006" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-3.5 py-2 rounded-lg text-xs font-bold bg-amber-400 text-slate-950 hover:bg-amber-300 shadow-sm transition shrink-0 self-start sm:self-auto">
+                            <span>Open in Maps</span>
+                            <svg class="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
                     </div>
 
                     <div class="rounded-xl overflow-hidden border border-slate-700 h-64 mb-6">
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14234.341775836262!2d75.7629631!3d26.8848777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db444fb9a5723%3A0xc3f1245e31704aa8!2sUpasana%201st%20Avenue%2C%20Ajmer%20Rd%2C%20Jaipur%2C%20Rajasthan%20302006!5e0!3m2!1sen!2sin!4v1700000000000" 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.4239824619!2d75.76018!3d26.88934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db4530263c915%3A0xc023c02d1a3c77eb!2sUpasana%201st%20Avenue%2C%20Ajmer%20Rd%2C%20Sodala%2C%20Jaipur%2C%20Rajasthan%20302006!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
                             width="100%" 
                             height="100%" 
                             style="border:0;" 

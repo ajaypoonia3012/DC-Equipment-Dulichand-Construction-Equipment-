@@ -33,15 +33,15 @@
 
                         <div class="space-y-4 text-sm text-slate-700">
                             <!-- Address -->
-                            <div class="flex items-start space-x-3">
-                                <div class="w-9 h-9 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center shrink-0">
+                            <a href="https://maps.google.com/?q=Upasana+1st+Avenue,+Ajmer+Road,+Sodala,+Jaipur,+Rajasthan+302006" target="_blank" rel="noopener noreferrer" class="flex items-start space-x-3 group hover:text-blue-700 transition">
+                                <div class="w-9 h-9 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                                 </div>
                                 <div>
                                     <span class="font-bold text-slate-900 block text-xs uppercase text-slate-500">Address</span>
                                     <span>Upasana 1st Avenue, Ajmer Road, Jaipur, Rajasthan, India - 302006</span>
                                 </div>
-                            </div>
+                            </a>
 
                             <!-- Phone -->
                             <div class="flex items-start space-x-3">
@@ -83,10 +83,16 @@
 
                     <!-- Interactive Google Map -->
                     <div class="bg-white rounded-2xl p-4 border border-slate-200 shadow-xs">
-                        <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 px-2">Ajmer Road Location Map</h4>
+                        <div class="flex items-center justify-between mb-2 px-2">
+                            <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider">Ajmer Road Location Map</h4>
+                            <a href="https://maps.google.com/?q=Upasana+1st+Avenue,+Ajmer+Road,+Sodala,+Jaipur,+Rajasthan+302006" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs font-bold text-blue-700 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-2.5 py-1 rounded-md transition">
+                                <span>Open in Maps</span>
+                                <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                            </a>
+                        </div>
                         <div class="rounded-xl overflow-hidden h-72 border border-slate-200">
                             <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14234.341775836262!2d75.7629631!3d26.8848777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db444fb9a5723%3A0xc3f1245e31704aa8!2sUpasana%201st%20Avenue%2C%20Ajmer%20Rd%2C%20Jaipur%2C%20Rajasthan%20302006!5e0!3m2!1sen!2sin!4v1700000000000" 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.4239824619!2d75.76018!3d26.88934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db4530263c915%3A0xc023c02d1a3c77eb!2sUpasana%201st%20Avenue%2C%20Ajmer%20Rd%2C%20Sodala%2C%20Jaipur%2C%20Rajasthan%20302006!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
                                 width="100%" 
                                 height="100%" 
                                 style="border:0;" 
