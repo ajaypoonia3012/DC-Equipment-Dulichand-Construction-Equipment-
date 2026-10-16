@@ -3,7 +3,7 @@
     @php
         $postImage = $post->image 
             ? (str_starts_with($post->image, 'http') ? $post->image : asset('storage/' . $post->image))
-            : 'https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=1400&q=80';
+            : 'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1400&q=80';
     @endphp
 
     <!-- Breadcrumbs -->
@@ -179,7 +179,7 @@
                                     @php
                                         $rImage = $rPost->image 
                                             ? (str_starts_with($rPost->image, 'http') ? $rPost->image : asset('storage/' . $rPost->image))
-                                            : 'https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=400&q=80';
+                                            : 'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=400&q=80';
                                     @endphp
                                     <div class="flex items-start space-x-3 group">
                                         <a href="{{ route('blog.detail', $rPost->slug) }}" class="w-20 h-16 rounded-lg overflow-hidden bg-slate-800 shrink-0 block">

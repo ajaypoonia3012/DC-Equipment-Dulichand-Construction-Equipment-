@@ -96,7 +96,7 @@ class ServiceResource extends Resource
                     ->label('Cover')
                     ->disk('public')
                     ->square()
-                    ->defaultImageUrl('https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=200&q=80'),
+                    ->defaultImageUrl('https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=200&q=80'),
 
                 Tables\Columns\TextColumn::make('title')
                     ->searchable()

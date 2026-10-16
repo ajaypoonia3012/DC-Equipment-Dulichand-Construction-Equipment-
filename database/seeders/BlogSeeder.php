@@ -34,10 +34,10 @@ class BlogSeeder extends Seeder
 <p>Thermal breakdown of hydraulic fluid generates micro-varnish and silt that clogs proportional valves. Regular replacement with 10-micron glass-fiber elements protects the main Rexroth or Kawasaki hydraulic pumps from catastrophic seizure.</p>
 
 <blockquote><p><strong>Pro-Tip from DC Equipment Engineers:</strong> Always keep a complete emergency wear plate kit, piston ram set, and hydraulic seal pack at your batching plant or pump station to prevent downtime during hot afternoon shifts.</p></blockquote>',
-                'image' => 'https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=1200&q=80',
+                'image' => 'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1200&q=80',
                 'gallery' => [
                     'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
-                    'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&w=800&q=80',
                 ],
                 'author' => 'Er. Jitender Singh | Senior Service Engineer',
                 'meta_title' => 'Top 5 Concrete Pump Spare Parts in Rajasthan Summers | DC Equipment',

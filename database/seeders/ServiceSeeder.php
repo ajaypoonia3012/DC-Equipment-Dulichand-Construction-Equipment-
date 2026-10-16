@@ -18,7 +18,7 @@ class ServiceSeeder extends Seeder
                 'icon' => 'wrench-screwdriver',
                 'image' => 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
                 'gallery' => [
-                    'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=80',
                     'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
                 ],
                 'features' => [
@@ -70,7 +70,7 @@ class ServiceSeeder extends Seeder
                 'image' => 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80',
                 'gallery' => [
                     'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
-                    'https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=800&q=80',
                 ],
                 'features' => [
                     'Precision cutting and replacement of worn spiral blades using Hardox 400 wear strips',
@@ -116,10 +116,10 @@ class ServiceSeeder extends Seeder
                 'short_description' => 'Pre-owned stationary concrete pumps, mobile batching plants, and transit mixers rigorously rebuilt, quality-audited, and ready for immediate deployment.',
                 'description' => 'When your project requires instant capacity without long OEM manufacturing lead times, DC Equipment offers thoroughly reconditioned machinery. Every unit undergoes complete mechanical, electrical, and hydraulic overhaul with brand new wear plates, hoses, and fluids before being certified.',
                 'icon' => 'truck',
-                'image' => 'https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=1200&q=80',
+                'image' => 'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1200&q=80',
                 'gallery' => [
                     'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
-                    'https://images.unsplash.com/photo-1590846083693-f23fdede3a7e?auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=800&q=80',
                 ],
                 'features' => [
                     '100-Point comprehensive mechanical and structural integrity inspection',
@@ -141,9 +141,9 @@ class ServiceSeeder extends Seeder
                 'short_description' => 'Short and long-term rental of stationary concrete pumps, pipeline accessories, and mobile transit mixers with skilled technical operators.',
                 'description' => 'Need additional pumping capacity for a continuous mass pour or a temporary bridge deck project? DC Equipment provides well-maintained, high-pressure concrete pumps and experienced operators to keep your critical schedule on track across Rajasthan and surrounding states.',
                 'icon' => 'calendar',
-                'image' => 'https://images.unsplash.com/photo-1590846083693-f23fdede3a7e?auto=format&fit=crop&w=1200&q=80',
+                'image' => 'https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=1200&q=80',
                 'gallery' => [
-                    'https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=800&q=80',
                     'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
                 ],
                 'features' => [

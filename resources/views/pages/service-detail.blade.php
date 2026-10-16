@@ -32,7 +32,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
                 <div class="lg:col-span-8 space-y-8">
                     @php
-                        $fallbackServiceImg = 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=1200&q=80';
+                        $fallbackServiceImg = 'https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=1200&q=80';
                         $serviceImg = $service->image 
                             ? (str_starts_with($service->image, 'http') ? $service->image : asset('storage/' . $service->image))
                             : $fallbackServiceImg;

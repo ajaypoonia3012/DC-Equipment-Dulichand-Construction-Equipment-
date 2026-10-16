@@ -269,7 +269,7 @@
                     @php
                         $srvImg = $service->image 
                             ? (str_starts_with($service->image, 'http') ? $service->image : asset('storage/' . $service->image))
-                            : 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80';
+                            : 'https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=600&q=80';
                     @endphp
                     <div class="bg-slate-800/80 rounded-2xl overflow-hidden border border-slate-700 hover:border-amber-400/50 transition-all duration-300 flex flex-col justify-between group">
                         <a href="{{ route('services.detail', $service->slug) }}" class="h-44 w-full overflow-hidden bg-slate-900 block relative">

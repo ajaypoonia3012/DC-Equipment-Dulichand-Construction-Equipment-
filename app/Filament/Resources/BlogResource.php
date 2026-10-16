@@ -120,7 +120,7 @@ class BlogResource extends Resource
                     ->label('Cover')
                     ->disk('public')
                     ->square()
-                    ->defaultImageUrl('https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=200&q=80'),
+                    ->defaultImageUrl('https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=200&q=80'),
 
                 Tables\Columns\TextColumn::make('title')
                     ->label('Title')

@@ -1,9 +1,9 @@
 <x-app-layout :seo="$seo">
 
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white py-16 lg:py-24 overflow-hidden border-b border-slate-800">
+    <section class="relative bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white pt-12 sm:pt-16 lg:pt-20 pb-16 lg:pb-24 overflow-hidden border-b border-slate-800">
         <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
-        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10 pt-4 sm:pt-6">
             <div class="max-w-3xl">
                 <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase tracking-wider mb-4">
                     <span>Engineering Knowledge Base</span>
@@ -33,7 +33,7 @@
                             @php
                                 $featuredImage = $featured->image 
                                     ? (str_starts_with($featured->image, 'http') ? $featured->image : asset('storage/' . $featured->image))
-                                    : 'https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=1200&q=80';
+                                    : 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80';
                             @endphp
                             <img src="{{ $featuredImage }}" alt="{{ $featured->title }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                             <div class="absolute top-4 left-4">

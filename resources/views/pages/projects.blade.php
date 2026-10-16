@@ -23,7 +23,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach($clients as $client)
                     @php
-                        $fallbackProj = 'https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=1200&q=80';
+                        $fallbackProj = 'https://images.unsplash.com/photo-1579847188804-ecba0e2ea330?auto=format&fit=crop&w=1200&q=80';
                         $projImg = $client->image ?: $client->project_image;
                         $projImgUrl = $projImg 
                             ? (str_starts_with($projImg, 'http') ? $projImg : asset('storage/' . $projImg))
