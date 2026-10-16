@@ -39,9 +39,11 @@
                 <!-- Main Specs & Description Column -->
                 <div class="lg:col-span-8 space-y-8">
                     @php
-                        $fallbackImage = $product->category->type === 'chemicals'
-                            ? 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1200&q=80'
-                            : 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80';
+                        $fallbackImage = ($product->category && $product->category->image)
+                            ? (str_starts_with($product->category->image, 'http') ? $product->category->image : asset('storage/' . $product->category->image))
+                            : (($product->category && $product->category->type === 'chemicals')
+                                ? 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1200&q=80'
+                                : 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80');
                         $productImage = $product->image 
                             ? (str_starts_with($product->image, 'http') ? $product->image : asset('storage/' . $product->image))
                             : $fallbackImage;

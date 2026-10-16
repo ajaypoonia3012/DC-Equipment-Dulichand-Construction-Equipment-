@@ -16,6 +16,11 @@ class ServiceSeeder extends Seeder
                 'short_description' => '24/7 mobile service engineering teams equipped for on-site diagnostic testing, hydraulic flow troubleshooting, and immediate breakdown repairs across Rajasthan.',
                 'description' => 'Unplanned machinery downtime at an active pour is an expensive emergency. DC Equipment operates a dedicated fleet of mobile service vans based out of Jaipur, stocked with critical wear spares, hydraulic flow meters, high-pressure test gauges, and certified heavy-equipment mechanics. We respond rapidly to sites along the Jaipur-Delhi Highway, Ajmer Expressway, and major project corridors throughout Rajasthan.',
                 'icon' => 'wrench-screwdriver',
+                'image' => 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
+                ],
                 'features' => [
                     'Hydraulic circuit pressure and relief valve calibration',
                     'Laser alignment of mixer drum rollers and chassis brackets',
@@ -37,6 +42,11 @@ class ServiceSeeder extends Seeder
                 'short_description' => 'Complete factory-standard teardown, honing, re-machining, and dyno-testing of rock valves, S-tubes, hydraulic pumps, and mixer gearboxes.',
                 'description' => 'Instead of purchasing costly brand-new assemblies, our Jaipur engineering workshop restores worn core components to original OEM specifications at a fraction of replacement cost. We strip, inspect, replace all internal wear rings, bearings, and dynamic seals, and conduct full pressure-testing prior to redelivery.',
                 'icon' => 'cog-6-tooth',
+                'image' => 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80',
+                ],
                 'features' => [
                     'S-Tube and Rock Valve remanufacturing with tungsten carbide hard-banding',
                     'Hydraulic cylinder rod straightening, hard-chrome plating, and custom seal kits',
@@ -56,6 +66,12 @@ class ServiceSeeder extends Seeder
                 'slug' => 'drum-and-spiral-work',
                 'short_description' => 'Specialized transit mixer drum maintenance including shell patch welding, Hardox 400 wear edge replacement, and new drum fabrication.',
                 'description' => 'Over years of hauling abrasive stone aggregate, transit mixer drums lose wall thickness and blade pitch, leading to slower discharge, material segregation, and eventual shell puncture. DC Equipment runs a dedicated drum fabrication bay in Jaipur with automated plate rolling, automated spiral blade pressing, and submerged arc welding.',
+                'icon' => 'cog-6-tooth',
+                'image' => 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=800&q=80',
+                ],
                 'features' => [
                     'Precision cutting and replacement of worn spiral blades using Hardox 400 wear strips',
                     'Cone section replacement and outer shell relining with high-yield structural steel',
@@ -75,6 +91,12 @@ class ServiceSeeder extends Seeder
                 'slug' => 'electrical-hydraulic-automation',
                 'short_description' => 'Upgrades, rewiring, and fault-finding for batching plant PLC panels, wireless radio remote controls, and proportional solenoid valves.',
                 'description' => 'Modern batching plants and boom pumps rely heavily on integrated micro-controllers and proportional electro-hydraulics. Our automation engineers diagnose intermittent wiring glitches, faulty load cell signals, pneumatic valve manifold failures, and failed proportional amplifiers.',
+                'icon' => 'bolt',
+                'image' => 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
+                ],
                 'features' => [
                     'Retrofitting and upgrading obsolete batching plant control software and weighing displays',
                     'Troubleshooting CAN-bus communication faults and radio remote transmitter sync',
@@ -93,6 +115,12 @@ class ServiceSeeder extends Seeder
                 'slug' => 'refurbished-equipment',
                 'short_description' => 'Pre-owned stationary concrete pumps, mobile batching plants, and transit mixers rigorously rebuilt, quality-audited, and ready for immediate deployment.',
                 'description' => 'When your project requires instant capacity without long OEM manufacturing lead times, DC Equipment offers thoroughly reconditioned machinery. Every unit undergoes complete mechanical, electrical, and hydraulic overhaul with brand new wear plates, hoses, and fluids before being certified.',
+                'icon' => 'truck',
+                'image' => 'https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1590846083693-f23fdede3a7e?auto=format&fit=crop&w=800&q=80',
+                ],
                 'features' => [
                     '100-Point comprehensive mechanical and structural integrity inspection',
                     'New wear parts, pipelines, seals, hydraulic oils, and high-tensile fasteners fitted',
@@ -112,6 +140,12 @@ class ServiceSeeder extends Seeder
                 'slug' => 'rental-support-fleet-assistance',
                 'short_description' => 'Short and long-term rental of stationary concrete pumps, pipeline accessories, and mobile transit mixers with skilled technical operators.',
                 'description' => 'Need additional pumping capacity for a continuous mass pour or a temporary bridge deck project? DC Equipment provides well-maintained, high-pressure concrete pumps and experienced operators to keep your critical schedule on track across Rajasthan and surrounding states.',
+                'icon' => 'calendar',
+                'image' => 'https://images.unsplash.com/photo-1590846083693-f23fdede3a7e?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+                ],
                 'features' => [
                     'Flexible rental contracts: daily, monthly, or project-based volume billing',
                     'Complete delivery pipe network packages with elbows, clamps, and rubber hoses',

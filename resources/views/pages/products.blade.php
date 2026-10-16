@@ -62,9 +62,12 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     @foreach($products as $product)
                         @php
+                            $fallbackCatImg = ($product->category && $product->category->image)
+                                ? (str_starts_with($product->category->image, 'http') ? $product->category->image : asset('storage/' . $product->category->image))
+                                : 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80';
                             $prodImg = $product->image 
                                 ? (str_starts_with($product->image, 'http') ? $product->image : asset('storage/' . $product->image))
-                                : 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80';
+                                : $fallbackCatImg;
                         @endphp
                         <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
                             <a href="{{ route('products.detail', $product->slug) }}" class="h-44 w-full overflow-hidden bg-slate-900 block relative">

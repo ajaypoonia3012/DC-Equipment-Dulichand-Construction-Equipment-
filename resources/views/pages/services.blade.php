@@ -21,69 +21,93 @@
         <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12">
             <div class="space-y-12">
                 @foreach($services as $index => $service)
-                    <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-lg transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 sm:p-8 items-center {{ $index % 2 === 1 ? 'lg:flex-row-reverse' : '' }}">
-                        
-                        <div class="lg:col-span-8 space-y-4">
-                            <div class="flex items-center space-x-3">
-                                <span class="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 font-extrabold flex items-center justify-center text-xs">
-                                    0{{ $index + 1 }}
+                    @php
+                        $fallbackServiceImg = 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80';
+                        $serviceImg = $service->image 
+                            ? (str_starts_with($service->image, 'http') ? $service->image : asset('storage/' . $service->image))
+                            : $fallbackServiceImg;
+                    @endphp
+                    <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col">
+                        <!-- Service Top Photo Banner -->
+                        <div class="relative h-60 sm:h-72 w-full overflow-hidden bg-slate-900 group">
+                            <img src="{{ $serviceImg }}" alt="{{ $service->title }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                            <div class="absolute bottom-4 left-6 right-6 flex items-end justify-between">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-amber-400 text-slate-950 shadow">
+                                    Division 0{{ $index + 1 }}
                                 </span>
-                                <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Service Division</span>
+                                <a href="{{ route('services.detail', $service->slug) }}" class="inline-flex items-center text-xs font-bold text-white bg-slate-900/80 hover:bg-slate-900 backdrop-blur-xs px-3.5 py-1.5 rounded-lg border border-white/20 transition">
+                                    <span>Detailed Technical Scope</span>
+                                    <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                </a>
                             </div>
-
-                            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                                {{ $service->title }}
-                            </h2>
-
-                            <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                                {{ $service->description }}
-                            </p>
-
-                            @if(!empty($service->features))
-                                <div class="pt-2">
-                                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Technical Scope of Work:</h4>
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                                        @foreach($service->features as $feature)
-                                            <div class="flex items-start space-x-2 text-xs sm:text-sm text-slate-700">
-                                                <svg class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                                <span>{{ $feature }}</span>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            @endif
-
-                            @if(!empty($service->benefits))
-                                <div class="pt-2">
-                                    <h4 class="text-xs font-bold uppercase tracking-wider text-amber-700 mb-2">Key Client Advantages:</h4>
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                                        @foreach($service->benefits as $benefit)
-                                            <div class="flex items-start space-x-2 text-xs text-slate-600 bg-amber-50/60 p-2 rounded-lg border border-amber-100/80">
-                                                <span class="text-amber-600 font-bold">★</span>
-                                                <span>{{ $benefit }}</span>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            @endif
                         </div>
 
-                        <!-- Right Action Box -->
-                        <div class="lg:col-span-4 bg-slate-900 text-white rounded-xl p-6 border border-slate-800 space-y-4">
-                            <span class="text-xs font-bold uppercase tracking-wider text-amber-400 block">Immediate Booking</span>
-                            <h4 class="text-lg font-bold text-white">Need This Service on Your Site?</h4>
-                            <p class="text-xs text-slate-400 leading-relaxed">
-                                Our mobile service engineers can mobilize to your site with diagnostic pressure testing gear and replacement spares.
-                            </p>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 sm:p-8 items-start">
+                            <div class="lg:col-span-8 space-y-4">
+                                <div class="flex items-center space-x-3">
+                                    <span class="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 font-extrabold flex items-center justify-center text-xs">
+                                        0{{ $index + 1 }}
+                                    </span>
+                                    <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Service Division</span>
+                                </div>
 
-                            <div class="pt-2 flex flex-col space-y-2">
-                                <a href="tel:+918696962600" class="w-full py-2.5 px-4 rounded-lg font-bold bg-amber-400 text-slate-950 text-center text-xs hover:bg-amber-300 transition flex items-center justify-center space-x-1.5">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                                    <span>Call Hotline: +91 86969 62600</span>
-                                </a>
-                                <a href="{{ route('contact') }}?service={{ urlencode($service->title) }}#quote-form" class="w-full py-2.5 px-4 rounded-lg font-bold bg-blue-600 text-white text-center text-xs hover:bg-blue-500 transition">
-                                    Book Inspection / Rebuild Quote
-                                </a>
+                                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                                    <a href="{{ route('services.detail', $service->slug) }}" class="hover:text-blue-600 transition">
+                                        {{ $service->title }}
+                                    </a>
+                                </h2>
+
+                                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                                    {{ $service->description }}
+                                </p>
+
+                                @if(!empty($service->features))
+                                    <div class="pt-2">
+                                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Technical Scope of Work:</h4>
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                            @foreach($service->features as $feature)
+                                                <div class="flex items-start space-x-2 text-xs sm:text-sm text-slate-700">
+                                                    <svg class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                                    <span>{{ $feature }}</span>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                @endif
+
+                                @if(!empty($service->benefits))
+                                    <div class="pt-2">
+                                        <h4 class="text-xs font-bold uppercase tracking-wider text-amber-700 mb-2">Key Client Advantages:</h4>
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                            @foreach($service->benefits as $benefit)
+                                                <div class="flex items-start space-x-2 text-xs text-slate-600 bg-amber-50/60 p-2 rounded-lg border border-amber-100/80">
+                                                    <span class="text-amber-600 font-bold">★</span>
+                                                    <span>{{ $benefit }}</span>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
+
+                            <!-- Right Action Box -->
+                            <div class="lg:col-span-4 bg-slate-900 text-white rounded-xl p-6 border border-slate-800 space-y-4">
+                                <span class="text-xs font-bold uppercase tracking-wider text-amber-400 block">Immediate Booking</span>
+                                <h4 class="text-lg font-bold text-white">Need This Service on Your Site?</h4>
+                                <p class="text-xs text-slate-400 leading-relaxed">
+                                    Our mobile service engineers can mobilize to your site with diagnostic pressure testing gear and replacement spares.
+                                </p>
+
+                                <div class="pt-2 flex flex-col space-y-2">
+                                    <a href="tel:+918696962600" class="w-full py-2.5 px-4 rounded-lg font-bold bg-amber-400 text-slate-950 text-center text-xs hover:bg-amber-300 transition flex items-center justify-center space-x-1.5">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                                        <span>Call Hotline: +91 86969 62600</span>
+                                    </a>
+                                    <a href="{{ route('contact') }}?service={{ urlencode($service->title) }}#quote-form" class="w-full py-2.5 px-4 rounded-lg font-bold bg-blue-600 text-white text-center text-xs hover:bg-blue-500 transition">
+                                        Book Inspection / Rebuild Quote
+                                    </a>
+                                </div>
                             </div>
                         </div>
 

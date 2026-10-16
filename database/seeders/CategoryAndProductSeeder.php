@@ -19,6 +19,11 @@ class CategoryAndProductSeeder extends Seeder
                 'type' => 'equipment',
                 'description' => 'Heavy-duty replacement spares, mixing arms, wear plates, twin-shaft blades, and pneumatic automation parts for all major batching plants.',
                 'icon' => 'cog',
+                'image' => 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80',
+                ],
                 'sort_order' => 1,
             ],
             [
@@ -27,6 +32,11 @@ class CategoryAndProductSeeder extends Seeder
                 'type' => 'equipment',
                 'description' => 'Stationary and trailer concrete pump components including tungsten carbide wear plates, cutting rings, S-tube valves, and delivery pipelines.',
                 'icon' => 'arrow-trending-up',
+                'image' => 'https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=80',
+                ],
                 'sort_order' => 2,
             ],
             [
@@ -35,6 +45,11 @@ class CategoryAndProductSeeder extends Seeder
                 'type' => 'equipment',
                 'description' => 'Specialized boom pump hydraulics, slewing gears, high-pressure elbows, flexible end hoses, and proportional radio remote controllers.',
                 'icon' => 'cube-transparent',
+                'image' => 'https://images.unsplash.com/photo-1590846083693-f23fdede3a7e?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=800&q=80',
+                ],
                 'sort_order' => 3,
             ],
             [
@@ -43,6 +58,11 @@ class CategoryAndProductSeeder extends Seeder
                 'type' => 'equipment',
                 'description' => 'Mixer drum shells, anti-wear spiral flight blades, roller track assemblies, reduction gearboxes, and hydraulic drive pumps.',
                 'icon' => 'truck',
+                'image' => 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=800&q=80',
+                ],
                 'sort_order' => 4,
             ],
             [
@@ -51,6 +71,11 @@ class CategoryAndProductSeeder extends Seeder
                 'type' => 'equipment',
                 'description' => 'Variable displacement axial piston pumps, hydraulic motors, proportional valves, high-pressure filters, and PLC control modules.',
                 'icon' => 'wrench-screwdriver',
+                'image' => 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80',
+                ],
                 'sort_order' => 5,
             ],
         ];
@@ -63,6 +88,10 @@ class CategoryAndProductSeeder extends Seeder
                 'type' => 'chemicals',
                 'description' => 'Lignosulfonate and naphthalene-based water reducers engineered for improved concrete workability, pumpability, and controlled setting times in hot climates.',
                 'icon' => 'beaker',
+                'image' => 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80',
+                ],
                 'sort_order' => 10,
             ],
             [
@@ -71,6 +100,10 @@ class CategoryAndProductSeeder extends Seeder
                 'type' => 'chemicals',
                 'description' => 'Advanced polycarboxylate ether (PCE) superplasticisers tailored for self-compacting concrete (SCC), high-early-strength precast, and M60+ ready-mix designs.',
                 'icon' => 'sparkles',
+                'image' => 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&w=800&q=80',
+                ],
                 'sort_order' => 11,
             ],
             [
@@ -79,6 +112,10 @@ class CategoryAndProductSeeder extends Seeder
                 'type' => 'chemicals',
                 'description' => 'Integral waterproofing liquid admixtures, crystalline waterproofing coatings, elastomeric acrylic membranes, and heavy-duty polyurethane elastomeric systems.',
                 'icon' => 'shield-check',
+                'image' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=800&q=80',
+                ],
                 'sort_order' => 12,
             ],
             [
@@ -87,6 +124,10 @@ class CategoryAndProductSeeder extends Seeder
                 'type' => 'chemicals',
                 'description' => 'High-strength cementitious and epoxy precision non-shrink grouting compounds for heavy machinery baseplates, bridge bearings, and structural anchor bolts.',
                 'icon' => 'bars-3-bottom-left',
+                'image' => 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=800&q=80',
+                ],
                 'sort_order' => 13,
             ],
             [
@@ -95,6 +136,10 @@ class CategoryAndProductSeeder extends Seeder
                 'type' => 'chemicals',
                 'description' => 'Polymer-modified repair mortars, rust inhibitors, fairing coats, and structural epoxy injection resins designed for concrete restoration.',
                 'icon' => 'wrench',
+                'image' => 'https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80',
+                ],
                 'sort_order' => 14,
             ],
             [
@@ -103,6 +148,10 @@ class CategoryAndProductSeeder extends Seeder
                 'type' => 'chemicals',
                 'description' => 'Non-metallic and metallic mineral dry-shake floor hardeners, heavy-duty epoxy self-leveling toppings, and polyurethane screeds for industrial floors.',
                 'icon' => 'squares-2x2',
+                'image' => 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=800&q=80',
+                ],
                 'sort_order' => 15,
             ],
             [
@@ -111,12 +160,16 @@ class CategoryAndProductSeeder extends Seeder
                 'type' => 'chemicals',
                 'description' => 'High-performance polysulphide and polyurethane elastomeric joint sealants for expansion joints, runway pavements, and water-retaining structures.',
                 'icon' => 'paint-brush',
+                'image' => 'https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=800&q=80',
+                ],
                 'sort_order' => 16,
             ],
         ];
 
         foreach (array_merge($equipmentCategories, $chemicalCategories) as $catData) {
-            $cat = Category::updateOrCreate(['slug' => $catData['slug']], $catData);
+            Category::updateOrCreate(['slug' => $catData['slug']], $catData);
         }
 
         // 3. Populate Concrete Equipment Products
@@ -159,6 +212,11 @@ class CategoryAndProductSeeder extends Seeder
                     'Resistant to aggressive crushed stone sand (M-Sand) abrasion',
                 ],
                 'applications' => 'Ready-Mix Concrete (RMC) plants, precast beam yards, dam construction batching setups.',
+                'image' => 'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80',
+                ],
                 'is_featured' => true,
                 'sort_order' => 1,
             ],
@@ -182,6 +240,10 @@ class CategoryAndProductSeeder extends Seeder
                     'Integrated inspection hatches under each intermediate hanger',
                 ],
                 'applications' => 'Cement silos, fly-ash conveying, GGBS feeding in concrete production plants.',
+                'image' => 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
+                ],
                 'is_featured' => false,
                 'sort_order' => 2,
             ],
@@ -209,6 +271,11 @@ class CategoryAndProductSeeder extends Seeder
                     'Direct replacement without modifying hopper swing lever linkage',
                 ],
                 'applications' => 'High-rise tower pumping, deep basement raft concreting, long-distance infrastructure pipelines.',
+                'image' => 'https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=80',
+                ],
                 'is_featured' => true,
                 'sort_order' => 3,
             ],
@@ -232,6 +299,10 @@ class CategoryAndProductSeeder extends Seeder
                     'Oil & abrasion resistant high-density polyurethane sealing gaskets',
                 ],
                 'applications' => 'Bridge deck concreting, metro viaduct casting, high-rise pipeline riser lines.',
+                'image' => 'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=800&q=80',
+                ],
                 'is_featured' => true,
                 'sort_order' => 4,
             ],
@@ -256,6 +327,10 @@ class CategoryAndProductSeeder extends Seeder
                     'Factory calibrated emergency manual override levers',
                 ],
                 'applications' => 'Truck-mounted boom pumps, stationary placing booms on high-rise central cores.',
+                'image' => 'https://images.unsplash.com/photo-1590846083693-f23fdede3a7e?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80',
+                ],
                 'is_featured' => false,
                 'sort_order' => 5,
             ],
@@ -282,6 +357,10 @@ class CategoryAndProductSeeder extends Seeder
                     'Precision balanced on heavy lathe rollers before primer and poly-urethane finishing',
                 ],
                 'applications' => 'Ready-Mix concrete transit fleets, highway paving projects, commercial RMC logistics.',
+                'image' => 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=80',
+                ],
                 'is_featured' => true,
                 'sort_order' => 6,
             ],
@@ -305,6 +384,10 @@ class CategoryAndProductSeeder extends Seeder
                     'Includes oil level sight glass and magnetic drain plug',
                 ],
                 'applications' => 'RMC fleet maintenance, drum drive powertrain retrofits.',
+                'image' => 'https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=80',
+                ],
                 'is_featured' => false,
                 'sort_order' => 7,
             ],
@@ -330,6 +413,10 @@ class CategoryAndProductSeeder extends Seeder
                     'Heavy-duty tapered roller swashplate bearings for 15,000+ operating hours',
                 ],
                 'applications' => 'Concrete pump drive systems, transit mixer hydraulic circuits, batching plant aggregate bins.',
+                'image' => 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
+                ],
                 'is_featured' => true,
                 'sort_order' => 8,
             ],
@@ -357,6 +444,10 @@ class CategoryAndProductSeeder extends Seeder
                     'Fully compatible with fly ash, micro silica, and GGBS blended cements',
                 ],
                 'applications' => 'Precast segment manufacturing, metro viaduct girders, heavily reinforced columns, high-rise pumped concrete.',
+                'image' => 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&w=800&q=80',
+                ],
                 'is_featured' => true,
                 'sort_order' => 9,
             ],
@@ -380,6 +471,10 @@ class CategoryAndProductSeeder extends Seeder
                     'Provides flawless, void-free architectural concrete surface finish',
                 ],
                 'applications' => 'Ready-mix batching plants, highway pavements, airport runways, long-haul mixer deliveries.',
+                'image' => 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80',
+                ],
                 'is_featured' => true,
                 'sort_order' => 10,
             ],
@@ -403,6 +498,10 @@ class CategoryAndProductSeeder extends Seeder
                     'Improves surface hardness and pumpability of standard M20 to M40 grades',
                 ],
                 'applications' => 'Commercial buildings, residential developments, canal lining, pavement works.',
+                'image' => 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80',
+                ],
                 'is_featured' => false,
                 'sort_order' => 11,
             ],
@@ -428,6 +527,10 @@ class CategoryAndProductSeeder extends Seeder
                     'Excellent adhesion to concrete, brick, mortar, and metal substrates',
                 ],
                 'applications' => 'Building terraces, podium parking decks, swimming pools, retaining walls, wet areas.',
+                'image' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=800&q=80',
+                ],
                 'is_featured' => true,
                 'sort_order' => 12,
             ],
@@ -451,6 +554,10 @@ class CategoryAndProductSeeder extends Seeder
                     'Protects structural steel reinforcement from corrosion induced by chlorides',
                 ],
                 'applications' => 'Basement retaining walls, water tanks, roof screeds, external facade plasters.',
+                'image' => 'https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+                ],
                 'is_featured' => false,
                 'sort_order' => 13,
             ],
@@ -474,6 +581,10 @@ class CategoryAndProductSeeder extends Seeder
                     'Pre-packaged factory dry blend requiring only on-site clean water addition',
                 ],
                 'applications' => 'Generator beds, turbine mountings, crane rails, precast column grouting, bridge bearing pads.',
+                'image' => 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=800&q=80',
+                ],
                 'is_featured' => true,
                 'sort_order' => 14,
             ],
@@ -497,6 +608,10 @@ class CategoryAndProductSeeder extends Seeder
                     'Pre-blended consistency ensures uniform site performance',
                 ],
                 'applications' => 'Bridge piers, damaged precast beams, marine structures, structural column retrofits.',
+                'image' => 'https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80',
+                ],
                 'is_featured' => false,
                 'sort_order' => 15,
             ],
@@ -520,6 +635,10 @@ class CategoryAndProductSeeder extends Seeder
                     'Seamless finish with easy maintenance and light reflectivity',
                 ],
                 'applications' => 'Heavy engineering workshops, RMC batching control yards, pharmaceutical warehouses, aircraft hangars.',
+                'image' => 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=800&q=80',
+                ],
                 'is_featured' => true,
                 'sort_order' => 16,
             ],
@@ -543,6 +662,10 @@ class CategoryAndProductSeeder extends Seeder
                     'Maintains elasticity and elongation throughout multi-season thermal cycles',
                 ],
                 'applications' => 'Highway concrete pavements, bridge deck expansion joints, water treatment reservoirs, retaining walls.',
+                'image' => 'https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=1200&q=80',
+                'gallery' => [
+                    'https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=800&q=80',
+                ],
                 'is_featured' => false,
                 'sort_order' => 17,
             ],

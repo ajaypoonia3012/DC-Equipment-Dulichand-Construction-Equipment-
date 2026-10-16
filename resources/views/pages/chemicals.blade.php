@@ -63,9 +63,12 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     @foreach($chemicals as $chemical)
                         @php
+                            $fallbackCatChem = ($chemical->category && $chemical->category->image)
+                                ? (str_starts_with($chemical->category->image, 'http') ? $chemical->category->image : asset('storage/' . $chemical->category->image))
+                                : 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=600&q=80';
                             $chemImg = $chemical->image 
                                 ? (str_starts_with($chemical->image, 'http') ? $chemical->image : asset('storage/' . $chemical->image))
-                                : 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=600&q=80';
+                                : $fallbackCatChem;
                         @endphp
                         <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
                             <a href="{{ route('products.detail', $chemical->slug) }}" class="h-44 w-full overflow-hidden bg-slate-900 block relative">

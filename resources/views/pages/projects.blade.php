@@ -23,18 +23,17 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach($clients as $client)
                     @php
+                        $fallbackProj = 'https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=1200&q=80';
                         $projImg = $client->image ?: $client->project_image;
                         $projImgUrl = $projImg 
                             ? (str_starts_with($projImg, 'http') ? $projImg : asset('storage/' . $projImg))
-                            : null;
+                            : $fallbackProj;
                     @endphp
                     <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-xs hover:shadow-lg transition flex flex-col justify-between overflow-hidden">
                         <div>
-                            @if($projImgUrl)
-                                <div class="h-44 w-full overflow-hidden bg-slate-900 -mx-8 -mt-8 mb-6 block relative">
-                                    <img src="{{ $projImgUrl }}" alt="{{ $client->client_name }}" class="w-full h-full object-cover" />
-                                </div>
-                            @endif
+                            <div class="h-44 w-full overflow-hidden bg-slate-900 -mx-8 -mt-8 mb-6 block relative">
+                                <img src="{{ $projImgUrl }}" alt="{{ $client->client_name }}" class="w-full h-full object-cover" />
+                            </div>
 
                             <div class="flex items-center justify-between gap-2 mb-4">
                                 <span class="px-2.5 py-1 rounded text-xs font-bold bg-blue-50 text-blue-800 uppercase tracking-wider">

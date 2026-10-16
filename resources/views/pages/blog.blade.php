@@ -33,7 +33,7 @@
                             @php
                                 $featuredImage = $featured->image 
                                     ? (str_starts_with($featured->image, 'http') ? $featured->image : asset('storage/' . $featured->image))
-                                    : 'https://images.unsplash.com/photo-1541888946425-d0fbb18615f8?auto=format&fit=crop&w=1200&q=80';
+                                    : 'https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=1200&q=80';
                             @endphp
                             <img src="{{ $featuredImage }}" alt="{{ $featured->title }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                             <div class="absolute top-4 left-4">
