@@ -1,0 +1,64 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --color-brand-950: #0B1120;
+    --color-brand-900: #0F172A;
+    --color-brand-800: #1E293B;
+    --color-brand-700: #334155;
+    --color-brand-600: #1E3A8A;
+    --color-brand-500: #2563EB;
+    --color-brand-400: #38BDF8;
+    --color-safety-500: #F59E0B;
+    --color-safety-600: #D97706;
+}
+
+/* Custom Industrial Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+.industrial-grid-bg {
+    background-size: 32px 32px;
+    background-image: 
+        linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+}
+
+.industrial-grid-dark {
+    background-size: 32px 32px;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+.text-glow {
+    text-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+}
+
+/* Form Dropdown & Option Contrast Enhancement */
+select option {
+    color: #0f172a !important; /* text-slate-900 */
+    background-color: #ffffff !important;
+    font-weight: 600 !important;
+    padding: 8px 12px !important;
+}
+
+select option:checked,
+select option:hover,
+select option:focus {
+    background-color: #f1f5f9 !important;
+    color: #0f172a !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    .dark select option {
+        color: #f8fafc !important;
+        background-color: #1e293b !important;
+    }
+}
