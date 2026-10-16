@@ -18,6 +18,19 @@ class CompanySetting extends Model
         'type',
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saved(function ($setting) {
+            Cache::forget("setting_{$setting->key}");
+        });
+
+        static::deleted(function ($setting) {
+            Cache::forget("setting_{$setting->key}");
+        });
+    }
+
     public static function get(string $key, $default = null)
     {
         return Cache::rememberForever("setting_{$key}", function () use ($key, $default) {

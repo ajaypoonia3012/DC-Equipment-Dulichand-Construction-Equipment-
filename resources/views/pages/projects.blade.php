@@ -22,8 +22,20 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach($clients as $client)
-                    <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-xs hover:shadow-lg transition flex flex-col justify-between">
+                    @php
+                        $projImg = $client->image ?: $client->project_image;
+                        $projImgUrl = $projImg 
+                            ? (str_starts_with($projImg, 'http') ? $projImg : asset('storage/' . $projImg))
+                            : null;
+                    @endphp
+                    <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-xs hover:shadow-lg transition flex flex-col justify-between overflow-hidden">
                         <div>
+                            @if($projImgUrl)
+                                <div class="h-44 w-full overflow-hidden bg-slate-900 -mx-8 -mt-8 mb-6 block relative">
+                                    <img src="{{ $projImgUrl }}" alt="{{ $client->client_name }}" class="w-full h-full object-cover" />
+                                </div>
+                            @endif
+
                             <div class="flex items-center justify-between gap-2 mb-4">
                                 <span class="px-2.5 py-1 rounded text-xs font-bold bg-blue-50 text-blue-800 uppercase tracking-wider">
                                     {{ $client->sector }}
@@ -34,9 +46,14 @@
                                 </span>
                             </div>
 
-                            <h3 class="text-xl font-bold text-slate-900 mb-1">
-                                {{ $client->client_name }}
-                            </h3>
+                            <div class="flex items-center gap-3 mb-2">
+                                @if($client->logo)
+                                    <img src="{{ str_starts_with($client->logo, 'http') ? $client->logo : asset('storage/' . $client->logo) }}" alt="{{ $client->client_name }}" class="w-8 h-8 object-contain rounded-sm" />
+                                @endif
+                                <h3 class="text-xl font-bold text-slate-900">
+                                    {{ $client->client_name }}
+                                </h3>
+                            </div>
                             <h4 class="text-sm font-semibold text-blue-700 mb-4">
                                 {{ $client->name }}
                             </h4>

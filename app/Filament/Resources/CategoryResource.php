@@ -51,6 +51,22 @@ class CategoryResource extends Resource
                             ->columnSpanFull()
                             ->rows(3),
 
+                        Forms\Components\FileUpload::make('image')
+                            ->label('Category Banner / Cover Image')
+                            ->image()
+                            ->disk('public')
+                            ->directory('categories')
+                            ->maxSize(5120)
+                            ->helperText('Upload category icon or banner image.'),
+
+                        Forms\Components\FileUpload::make('gallery')
+                            ->label('Gallery Photos')
+                            ->multiple()
+                            ->image()
+                            ->disk('public')
+                            ->directory('categories/gallery')
+                            ->maxSize(10240),
+
                         Forms\Components\Toggle::make('is_active')
                             ->default(true)
                             ->inline(false),
@@ -62,6 +78,12 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('image')
+                    ->label('Image')
+                    ->disk('public')
+                    ->square()
+                    ->defaultImageUrl('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=200&q=80'),
+
                 Tables\Columns\TextColumn::make('name')
                     ->searchable()
                     ->sortable()

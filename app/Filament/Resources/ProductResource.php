@@ -83,9 +83,26 @@ class ProductResource extends Resource
 
                         Forms\Components\Tabs\Tab::make('Media & Visibility')
                             ->schema([
-                                Forms\Components\TextInput::make('image')
-                                    ->label('Featured Image URL / Asset Path')
-                                    ->placeholder('/images/products/sample.jpg'),
+                                Forms\Components\FileUpload::make('image')
+                                    ->label('Cover Photo / Featured Image')
+                                    ->disk('public')
+                                    ->directory('products')
+                                    ->image()
+                                    ->imageEditor()
+                                    ->maxSize(10240)
+                                    ->columnSpanFull()
+                                    ->helperText('Upload JPG, PNG, or WebP (up to 10MB). Stored securely on public disk.'),
+
+                                Forms\Components\FileUpload::make('gallery')
+                                    ->label('Product Gallery Photos')
+                                    ->multiple()
+                                    ->reorderable()
+                                    ->disk('public')
+                                    ->directory('products/gallery')
+                                    ->image()
+                                    ->maxSize(10240)
+                                    ->columnSpanFull()
+                                    ->helperText('Upload multiple angle photos or site installation shots.'),
 
                                 Forms\Components\Toggle::make('is_featured')
                                     ->label('Feature on Homepage')
@@ -118,6 +135,12 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('image')
+                    ->label('Thumbnail')
+                    ->disk('public')
+                    ->square()
+                    ->defaultImageUrl('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=200&q=80'),
+
                 Tables\Columns\TextColumn::make('name')
                     ->searchable()
                     ->sortable()
@@ -152,6 +175,50 @@ class ProductResource extends Resource
                 Tables\Filters\TernaryFilter::make('is_active'),
             ])
             ->actions([
+                Tables\Actions\Action::make('publish_social')
+                    ->label('Post to Social')
+                    ->icon('heroicon-o-share')
+                    ->color('warning')
+                    ->modalHeading('Cross-Post Product to Social Platforms')
+                    ->modalDescription('Broadcast this product announcement to Google Business Profile, Facebook, Instagram, and LinkedIn.')
+                    ->modalSubmitActionLabel('Publish Now')
+                    ->form([
+                        Forms\Components\CheckboxList::make('channels')
+                            ->label('Target Platforms')
+                            ->options([
+                                'gbp' => 'Google Business Profile (Local Post)',
+                                'facebook' => 'Facebook Company Page',
+                                'instagram' => 'Instagram Business (Image Required)',
+                                'linkedin' => 'LinkedIn Organization Page',
+                            ])
+                            ->default(['gbp', 'facebook', 'linkedin'])
+                            ->required(),
+
+                        Forms\Components\Textarea::make('message')
+                            ->label('Post Caption / Message')
+                            ->rows(4)
+                            ->default(fn (Product $record) => "⚡ DC Equipment Product Update:\n\n{$record->name} is in ready stock at our Jaipur warehouse! High durability, OEM-grade construction machinery spares & solutions across Rajasthan.\n\n📍 Visit DC Equipment, Ajmer Road, Jaipur | Call +91 86969 62600")
+                            ->required(),
+
+                        Forms\Components\Toggle::make('include_image')
+                            ->label('Attach Featured Photo')
+                            ->default(true),
+                    ])
+                    ->action(function (Product $record, array $data) {
+                        $publisher = app(\App\Services\SocialPublisherService::class);
+                        $imageUrl = ($data['include_image'] && $record->image) 
+                            ? (str_starts_with($record->image, 'http') ? $record->image : asset('storage/' . $record->image))
+                            : null;
+                        $linkUrl = url('/products/' . $record->slug);
+
+                        $results = $publisher->publish($data['channels'], $data['message'], $imageUrl, $linkUrl);
+
+                        \Filament\Notifications\Notification::make()
+                            ->title('Social Media Dispatch Completed')
+                            ->body('Post submitted to ' . implode(', ', array_map('strtoupper', $data['channels'])))
+                            ->success()
+                            ->send();
+                    }),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])

@@ -38,6 +38,35 @@
                 
                 <!-- Main Specs & Description Column -->
                 <div class="lg:col-span-8 space-y-8">
+                    @php
+                        $fallbackImage = $product->category->type === 'chemicals'
+                            ? 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1200&q=80'
+                            : 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80';
+                        $productImage = $product->image 
+                            ? (str_starts_with($product->image, 'http') ? $product->image : asset('storage/' . $product->image))
+                            : $fallbackImage;
+                    @endphp
+
+                    <!-- Product Image & Gallery Display -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-xs">
+                        <div class="relative h-72 sm:h-96 w-full bg-slate-900 overflow-hidden flex items-center justify-center">
+                            <img src="{{ $productImage }}" alt="{{ $product->name }}" class="w-full h-full object-cover" />
+                            <div class="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-xs text-white text-xs px-3 py-1 rounded-md font-semibold border border-white/20">
+                                {{ $product->category->name }}
+                            </div>
+                        </div>
+                        @if(!empty($product->gallery) && is_array($product->gallery))
+                            <div class="p-4 grid grid-cols-4 gap-3 bg-slate-50 border-t border-slate-100">
+                                @foreach($product->gallery as $gPhoto)
+                                    @php $gUrl = str_starts_with($gPhoto, 'http') ? $gPhoto : asset('storage/' . $gPhoto); @endphp
+                                    <div class="h-20 rounded-lg overflow-hidden border border-slate-200 bg-white">
+                                        <img src="{{ $gUrl }}" alt="{{ $product->name }} gallery photo" class="w-full h-full object-cover hover:scale-105 transition" />
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
+                    </div>
+
                     <!-- Overview Card -->
                     <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
                         <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-100">

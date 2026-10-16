@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             CategoryAndProductSeeder::class,
             ServiceSeeder::class,
             ClientReferenceSeeder::class,
+            BlogSeeder::class,
             SeoMetaSeeder::class,
         ]);
     }

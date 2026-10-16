@@ -38,6 +38,24 @@ class CompanySettingSeeder extends Seeder
 
             // Partnership
             ['key' => 'partner_brand_name', 'group' => 'general', 'label' => 'Principal Chemical Partner', 'value' => 'DCP (Don Construction Products)', 'type' => 'text'],
+
+            // Branding (Logo, Favicon)
+            ['key' => 'site_logo_light', 'group' => 'branding', 'label' => 'Site Logo (Light Background - Header)', 'value' => null, 'type' => 'image'],
+            ['key' => 'site_logo_dark', 'group' => 'branding', 'label' => 'Site Logo (Dark Background - Footer)', 'value' => null, 'type' => 'image'],
+            ['key' => 'site_favicon', 'group' => 'branding', 'label' => 'Browser Favicon (.ico / .png)', 'value' => null, 'type' => 'image'],
+
+            // Google Analytics 4 (GA4)
+            ['key' => 'google_analytics_id', 'group' => 'analytics', 'label' => 'Google Analytics 4 Measurement ID', 'value' => 'G-DCEQUIPMENT', 'type' => 'text'],
+
+            // Social Media API Credentials
+            ['key' => 'gbp_location_id', 'group' => 'social_api', 'label' => 'Google Business Profile Location ID', 'value' => 'locations/1726354829103948', 'type' => 'text'],
+            ['key' => 'gbp_access_token', 'group' => 'social_api', 'label' => 'Google Business Profile OAuth Token', 'value' => null, 'type' => 'textarea'],
+            ['key' => 'facebook_page_id', 'group' => 'social_api', 'label' => 'Facebook Page ID', 'value' => '109283746501928', 'type' => 'text'],
+            ['key' => 'facebook_access_token', 'group' => 'social_api', 'label' => 'Facebook Graph API Access Token', 'value' => null, 'type' => 'textarea'],
+            ['key' => 'instagram_account_id', 'group' => 'social_api', 'label' => 'Instagram Business Account ID', 'value' => '17841400293847291', 'type' => 'text'],
+            ['key' => 'instagram_access_token', 'group' => 'social_api', 'label' => 'Instagram Graph API Access Token', 'value' => null, 'type' => 'textarea'],
+            ['key' => 'linkedin_organization_urn', 'group' => 'social_api', 'label' => 'LinkedIn Organization URN', 'value' => 'urn:li:organization:98234710', 'type' => 'text'],
+            ['key' => 'linkedin_access_token', 'group' => 'social_api', 'label' => 'LinkedIn OAuth2 Access Token', 'value' => null, 'type' => 'textarea'],
         ];
 
         foreach ($settings as $setting) {

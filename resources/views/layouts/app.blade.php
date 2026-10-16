@@ -17,10 +17,30 @@
     <meta property="og:url" content="{{ $seo->canonical_url ?? url()->current() }}">
     <meta property="og:title" content="{{ $seo->og_title ?? $seo->title ?? 'DC Equipment - Construction Machinery & Chemicals' }}">
     <meta property="og:description" content="{{ $seo->og_description ?? $seo->description ?? 'Premier supplier of construction equipment spares and DCP chemicals in Rajasthan.' }}">
-    <meta property="og:image" content="{{ asset('images/logo.svg') }}">
+    @php
+        $siteFavicon = \App\Models\CompanySetting::get('site_favicon');
+        $siteLogoLight = \App\Models\CompanySetting::get('site_logo_light');
+        $siteLogoDark = \App\Models\CompanySetting::get('site_logo_dark');
+        $ga4Id = \App\Models\CompanySetting::get('google_analytics_id');
+    @endphp
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="{{ asset('images/logo.svg') }}">
+    @if($siteFavicon)
+        <link rel="icon" href="{{ asset('storage/' . $siteFavicon) }}">
+    @else
+        <link rel="icon" type="image/svg+xml" href="{{ asset('images/logo.svg') }}">
+    @endif
+
+    <!-- Google Analytics (GA4) -->
+    @if(!empty($ga4Id))
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ $ga4Id }}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '{{ $ga4Id }}');
+        </script>
+    @endif
 
     <!-- Google Fonts (Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -123,7 +143,11 @@
             <div class="flex justify-between items-center h-20 sm:h-24">
                 <!-- Brand Logo Component -->
                 <a href="{{ route('home') }}" class="group py-2 flex items-center">
-                    <x-logo variant="light" height="h-14 sm:h-16" />
+                    @if($siteLogoLight)
+                        <img src="{{ asset('storage/' . $siteLogoLight) }}" alt="DC Equipment" class="h-14 sm:h-16 w-auto object-contain" />
+                    @else
+                        <x-logo variant="light" height="h-14 sm:h-16" />
+                    @endif
                 </a>
 
                 <!-- Desktop Navigation Menu -->
@@ -146,6 +170,9 @@
                     </a>
                     <a href="{{ route('projects') }}" class="px-3 py-2 rounded-lg transition {{ request()->routeIs('projects') ? 'text-blue-600 bg-blue-50/80 font-semibold' : 'hover:text-blue-600 hover:bg-slate-100/60' }}">
                         Clients & Projects
+                    </a>
+                    <a href="{{ route('blog') }}" class="px-3 py-2 rounded-lg transition {{ request()->routeIs('blog*') ? 'text-blue-600 bg-blue-50/80 font-semibold' : 'hover:text-blue-600 hover:bg-slate-100/60' }}">
+                        Blog & Insights
                     </a>
                     <a href="{{ route('contact') }}" class="px-3 py-2 rounded-lg transition {{ request()->routeIs('contact') ? 'text-blue-600 bg-blue-50/80 font-semibold' : 'hover:text-blue-600 hover:bg-slate-100/60' }}">
                         Contact
@@ -180,6 +207,7 @@
             </a>
             <a href="{{ route('services') }}" class="block px-3 py-2 rounded-lg font-medium {{ request()->routeIs('services*') ? 'bg-blue-50 text-blue-600 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">Services & Workshop</a>
             <a href="{{ route('projects') }}" class="block px-3 py-2 rounded-lg font-medium {{ request()->routeIs('projects') ? 'bg-blue-50 text-blue-600 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">Clients & Projects</a>
+            <a href="{{ route('blog') }}" class="block px-3 py-2 rounded-lg font-medium {{ request()->routeIs('blog*') ? 'bg-blue-50 text-blue-600 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">Articles & Blog</a>
             <a href="{{ route('contact') }}" class="block px-3 py-2 rounded-lg font-medium {{ request()->routeIs('contact') ? 'bg-blue-50 text-blue-600 font-bold' : 'text-slate-700 hover:bg-slate-50' }}">Contact & Jaipur HQ</a>
             
             <div class="pt-4 border-t border-slate-100 flex flex-col space-y-2">
@@ -218,7 +246,13 @@
                 <!-- Col 1: Brand & Heritage -->
                 <div class="lg:col-span-2 space-y-4">
                     <a href="{{ route('home') }}" class="inline-block">
-                        <x-logo variant="dark" height="h-14 sm:h-16" />
+                        @if($siteLogoDark)
+                            <img src="{{ asset('storage/' . $siteLogoDark) }}" alt="DC Equipment" class="h-14 sm:h-16 w-auto object-contain" />
+                        @elseif($siteLogoLight)
+                            <img src="{{ asset('storage/' . $siteLogoLight) }}" alt="DC Equipment" class="h-14 sm:h-16 w-auto object-contain brightness-0 invert" />
+                        @else
+                            <x-logo variant="dark" height="h-14 sm:h-16" />
+                        @endif
                     </a>
                     <p class="text-sm leading-relaxed text-slate-400 pr-4">
                         Established in 2016 in Jaipur, Dulichand Construction Equipment (DC Equipment) is Rajasthan's leading distributor and engineering partner for heavy concrete machinery spares, transit mixer rebuilds, and high-performance DCP construction chemical solutions.
@@ -286,9 +320,10 @@
             <!-- Footer Bottom -->
             <div class="pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 gap-4">
                 <p>&copy; {{ date('Y') }} Dulichand Construction Equipment (DC Equipment). All Rights Reserved. Jaipur, Rajasthan, India.</p>
-                <div class="flex items-center space-x-6">
+                <div class="flex items-center space-x-6 flex-wrap gap-y-2">
                     <a href="{{ route('about') }}" class="hover:text-slate-300">About DC Equipment</a>
                     <a href="{{ route('services') }}" class="hover:text-slate-300">Workshop Facilities</a>
+                    <a href="{{ route('blog') }}" class="hover:text-amber-400 font-medium">Articles & Blog</a>
                     <a href="https://maps.google.com/?q=Upasana+1st+Avenue,+Ajmer+Road,+Sodala,+Jaipur,+Rajasthan+302006" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400">Ajmer Road Location</a>
                     <a href="{{ url('/admin') }}" class="hover:text-amber-400 flex items-center space-x-1">
                         <span>Staff Login</span>

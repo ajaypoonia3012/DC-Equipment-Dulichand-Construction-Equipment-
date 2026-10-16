@@ -57,6 +57,31 @@ class ClientReferenceResource extends Resource
                             ->label('Testimonial Authority / Designation')
                             ->placeholder('Project Director / Plant In-Charge'),
 
+                        Forms\Components\FileUpload::make('logo')
+                            ->label('Client Corporate Logo')
+                            ->image()
+                            ->disk('public')
+                            ->directory('clients/logos')
+                            ->maxSize(5120)
+                            ->helperText('Upload PNG/SVG with transparent background.'),
+
+                        Forms\Components\FileUpload::make('image')
+                            ->label('Project / Job Site Cover Photo')
+                            ->image()
+                            ->disk('public')
+                            ->directory('clients/projects')
+                            ->maxSize(10240)
+                            ->helperText('Photo of machinery on site, ready-mix batching plant, or concrete pouring.'),
+
+                        Forms\Components\FileUpload::make('gallery')
+                            ->label('Project Gallery Photos')
+                            ->multiple()
+                            ->image()
+                            ->disk('public')
+                            ->directory('clients/gallery')
+                            ->maxSize(10240)
+                            ->columnSpanFull(),
+
                         Forms\Components\TextInput::make('sort_order')
                             ->numeric()
                             ->default(0),
@@ -71,6 +96,12 @@ class ClientReferenceResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('logo')
+                    ->label('Logo')
+                    ->disk('public')
+                    ->circular()
+                    ->defaultImageUrl('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=200&q=80'),
+
                 Tables\Columns\TextColumn::make('client_name')
                     ->searchable()
                     ->sortable()

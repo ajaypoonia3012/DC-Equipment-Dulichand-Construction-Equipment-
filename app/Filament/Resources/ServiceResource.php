@@ -59,6 +59,26 @@ class ServiceResource extends Resource
                             ->label('Client Benefits & Value Add')
                             ->placeholder('Add benefit and press Enter'),
 
+                        Forms\Components\FileUpload::make('image')
+                            ->label('Service Featured Image / Banner')
+                            ->image()
+                            ->disk('public')
+                            ->directory('services')
+                            ->imageEditor()
+                            ->maxSize(10240)
+                            ->columnSpanFull()
+                            ->helperText('Upload service banner (maintenance workshop, technician at site, etc.).'),
+
+                        Forms\Components\FileUpload::make('gallery')
+                            ->label('Service Gallery / Field Photos')
+                            ->multiple()
+                            ->image()
+                            ->disk('public')
+                            ->directory('services/gallery')
+                            ->maxSize(10240)
+                            ->columnSpanFull()
+                            ->helperText('Upload additional project / procedure snapshots.'),
+
                         Forms\Components\Toggle::make('is_featured')
                             ->default(true),
 
@@ -72,6 +92,12 @@ class ServiceResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('image')
+                    ->label('Cover')
+                    ->disk('public')
+                    ->square()
+                    ->defaultImageUrl('https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=200&q=80'),
+
                 Tables\Columns\TextColumn::make('title')
                     ->searchable()
                     ->sortable()

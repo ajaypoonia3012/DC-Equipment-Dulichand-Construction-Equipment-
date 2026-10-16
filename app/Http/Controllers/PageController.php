@@ -168,4 +168,37 @@ class PageController extends Controller
         $seo = SeoMeta::forPage('contact');
         return view('pages.contact', compact('seo'));
     }
+
+    public function blog()
+    {
+        $seo = SeoMeta::forPage('blog');
+        if (!$seo) {
+            $seo = new SeoMeta([
+                'title' => 'Technical Articles & Industry Insights | DC Equipment Jaipur',
+                'description' => 'Expert engineering guides on concrete pump spare parts, transit mixer drum maintenance, PCE hyperplasticisers, and heavy machinery support in Rajasthan.',
+                'keywords' => 'concrete pump spares jaipur, pce hyperplasticisers rajasthan, transit mixer repair, dc equipment blog',
+                'canonical_url' => route('blog'),
+            ]);
+        }
+        $posts = \App\Models\Blog::published()->latest('published_at')->paginate(9);
+        $recentPosts = \App\Models\Blog::published()->latest('published_at')->take(4)->get();
+
+        return view('pages.blog', compact('seo', 'posts', 'recentPosts'));
+    }
+
+    public function blogDetail($slug)
+    {
+        $post = \App\Models\Blog::where('slug', $slug)->published()->firstOrFail();
+        $relatedPosts = \App\Models\Blog::where('id', '!=', $post->id)->published()->latest('published_at')->take(3)->get();
+
+        $seo = new SeoMeta([
+            'title' => $post->meta_title ?: "{$post->title} | DC Equipment",
+            'description' => $post->meta_description ?: $post->excerpt,
+            'keywords' => $post->meta_keywords ?: 'construction equipment rajasthan, dc equipment jaipur',
+            'canonical_url' => route('blog.detail', $post->slug),
+            'og_image' => $post->image ? (str_starts_with($post->image, 'http') ? $post->image : asset('storage/' . $post->image)) : null,
+        ]);
+
+        return view('pages.blog-detail', compact('post', 'relatedPosts', 'seo'));
+    }
 }

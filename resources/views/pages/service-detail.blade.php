@@ -31,6 +31,30 @@
         <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
                 <div class="lg:col-span-8 space-y-8">
+                    @php
+                        $fallbackServiceImg = 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=1200&q=80';
+                        $serviceImg = $service->image 
+                            ? (str_starts_with($service->image, 'http') ? $service->image : asset('storage/' . $service->image))
+                            : $fallbackServiceImg;
+                    @endphp
+
+                    <!-- Service Featured Image & Gallery -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-xs">
+                        <div class="relative h-64 sm:h-80 w-full bg-slate-900 overflow-hidden flex items-center justify-center">
+                            <img src="{{ $serviceImg }}" alt="{{ $service->title }}" class="w-full h-full object-cover" />
+                        </div>
+                        @if(!empty($service->gallery) && is_array($service->gallery))
+                            <div class="p-4 grid grid-cols-4 gap-3 bg-slate-50 border-t border-slate-100">
+                                @foreach($service->gallery as $gPhoto)
+                                    @php $gUrl = str_starts_with($gPhoto, 'http') ? $gPhoto : asset('storage/' . $gPhoto); @endphp
+                                    <div class="h-20 rounded-lg overflow-hidden border border-slate-200 bg-white">
+                                        <img src="{{ $gUrl }}" alt="{{ $service->title }} photo" class="w-full h-full object-cover hover:scale-105 transition" />
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
+                    </div>
+
                     <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
                         <h2 class="text-xl font-bold text-slate-900 mb-4">Service Description & Process</h2>
                         <div class="prose text-slate-600 text-sm leading-relaxed space-y-4">

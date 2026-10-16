@@ -18,12 +18,15 @@ class ClientReference extends Model
         'testimonial',
         'testimonial_author',
         'logo',
+        'image',
         'project_image',
+        'gallery',
         'is_featured',
         'sort_order',
     ];
 
     protected $casts = [
+        'gallery' => 'array',
         'is_featured' => 'boolean',
         'sort_order' => 'integer',
     ];

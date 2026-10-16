@@ -17,6 +17,7 @@ class Service extends Model
         'description',
         'icon',
         'image',
+        'gallery',
         'features',
         'benefits',
         'is_featured',
@@ -25,6 +26,7 @@ class Service extends Model
     ];
 
     protected $casts = [
+        'gallery' => 'array',
         'features' => 'array',
         'benefits' => 'array',
         'is_featured' => 'boolean',

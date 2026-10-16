@@ -18,11 +18,13 @@ class Category extends Model
         'description',
         'icon',
         'image',
+        'gallery',
         'sort_order',
         'is_active',
     ];
 
     protected $casts = [
+        'gallery' => 'array',
         'is_active' => 'boolean',
         'sort_order' => 'integer',
     ];

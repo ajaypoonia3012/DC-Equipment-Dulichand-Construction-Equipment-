@@ -61,15 +61,32 @@
             @if($products->count() > 0)
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     @foreach($products as $product)
+                        @php
+                            $prodImg = $product->image 
+                                ? (str_starts_with($product->image, 'http') ? $product->image : asset('storage/' . $product->image))
+                                : 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80';
+                        @endphp
                         <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
-                            <div class="p-6">
-                                <div class="flex items-center justify-between gap-2 mb-3">
-                                    <span class="px-2.5 py-1 rounded text-xs font-bold bg-slate-100 text-slate-700 uppercase tracking-wider">
+                            <a href="{{ route('products.detail', $product->slug) }}" class="h-44 w-full overflow-hidden bg-slate-900 block relative">
+                                <img src="{{ $prodImg }}" alt="{{ $product->name }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+                                <div class="absolute top-3 left-3">
+                                    <span class="px-2.5 py-1 rounded text-[11px] font-bold bg-slate-900/80 backdrop-blur-xs text-white uppercase tracking-wider">
                                         {{ $product->category->name }}
                                     </span>
+                                </div>
+                            </a>
+
+                            <div class="p-6">
+                                <div class="flex items-center justify-between gap-2 mb-2">
                                     @if($product->sku)
-                                        <span class="font-mono text-xs text-slate-500 font-semibold">{{ $product->sku }}</span>
+                                        <span class="font-mono text-xs text-blue-700 font-semibold">{{ $product->sku }}</span>
+                                    @else
+                                        <span></span>
                                     @endif
+                                    <span class="text-xs text-emerald-600 font-bold flex items-center">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1 animate-pulse"></span>
+                                        In Stock
+                                    </span>
                                 </div>
 
                                 <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition mb-2">

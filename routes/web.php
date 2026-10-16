@@ -25,5 +25,9 @@ Route::get('/projects', [PageController::class, 'projects'])->name('projects');
 // Contact & Quote
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 
+// SEO Blog & Articles
+Route::get('/blog', [PageController::class, 'blog'])->name('blog');
+Route::get('/blog/{slug}', [PageController::class, 'blogDetail'])->name('blog.detail');
+
 // Lead / Quote Submission
 Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiry.store');

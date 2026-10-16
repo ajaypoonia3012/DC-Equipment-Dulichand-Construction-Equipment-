@@ -183,15 +183,32 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach($featuredEquipment as $product)
+                    @php
+                        $prodImg = $product->image 
+                            ? (str_starts_with($product->image, 'http') ? $product->image : asset('storage/' . $product->image))
+                            : 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80';
+                    @endphp
                     <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
-                        <div class="p-6">
-                            <div class="flex items-center justify-between gap-2 mb-3">
-                                <span class="px-2.5 py-1 rounded text-xs font-bold bg-slate-100 text-slate-700 uppercase tracking-wider">
+                        <a href="{{ route('products.detail', $product->slug) }}" class="h-44 w-full overflow-hidden bg-slate-900 block relative">
+                            <img src="{{ $prodImg }}" alt="{{ $product->name }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+                            <div class="absolute top-3 left-3">
+                                <span class="px-2.5 py-1 rounded text-[11px] font-bold bg-slate-900/80 backdrop-blur-xs text-white uppercase tracking-wider">
                                     {{ $product->category->name }}
                                 </span>
+                            </div>
+                        </a>
+
+                        <div class="p-6">
+                            <div class="flex items-center justify-between gap-2 mb-2">
                                 @if($product->sku)
-                                    <span class="font-mono text-xs text-slate-500 font-semibold">{{ $product->sku }}</span>
+                                    <span class="font-mono text-xs text-blue-700 font-semibold">{{ $product->sku }}</span>
+                                @else
+                                    <span></span>
                                 @endif
+                                <span class="text-xs text-emerald-600 font-bold flex items-center">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1 animate-pulse"></span>
+                                    In Stock
+                                </span>
                             </div>
 
                             <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition mb-2">
@@ -246,40 +263,48 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach($services as $service)
-                    <div class="bg-slate-800/80 rounded-2xl p-6 border border-slate-700 hover:border-amber-400/50 transition-all duration-300 flex flex-col justify-between group">
-                        <div>
-                            <div class="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/30 text-amber-400 flex items-center justify-center mb-5">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    @php
+                        $srvImg = $service->image 
+                            ? (str_starts_with($service->image, 'http') ? $service->image : asset('storage/' . $service->image))
+                            : 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80';
+                    @endphp
+                    <div class="bg-slate-800/80 rounded-2xl overflow-hidden border border-slate-700 hover:border-amber-400/50 transition-all duration-300 flex flex-col justify-between group">
+                        <a href="{{ route('services.detail', $service->slug) }}" class="h-44 w-full overflow-hidden bg-slate-900 block relative">
+                            <img src="{{ $srvImg }}" alt="{{ $service->title }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                        </a>
+
+                        <div class="p-6 grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold text-white group-hover:text-amber-400 transition mb-2">
+                                    <a href="{{ route('services.detail', $service->slug) }}">
+                                        {{ $service->title }}
+                                    </a>
+                                </h3>
+
+                                <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                                    {{ $service->short_description }}
+                                </p>
+
+                                @if(!empty($service->features))
+                                    <ul class="space-y-1.5 text-xs text-slate-300 mb-6">
+                                        @foreach(array_slice($service->features, 0, 3) as $feature)
+                                            <li class="flex items-start space-x-1.5">
+                                                 <span class="text-amber-400 mt-0.5">•</span>
+                                                 <span>{{ $feature }}</span>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @endif
                             </div>
 
-                            <h3 class="text-xl font-bold text-white group-hover:text-amber-400 transition mb-2">
-                                <a href="{{ route('services.detail', $service->slug) }}">
-                                    {{ $service->title }}
+                            <div class="pt-4 border-t border-slate-700/60 flex items-center justify-between">
+                                <span class="text-xs text-slate-400">Jaipur Hub & Field Mobile</span>
+                                <a href="{{ route('services.detail', $service->slug) }}" class="text-xs font-bold text-amber-400 hover:text-amber-300 inline-flex items-center">
+                                    <span>Service Scope</span>
+                                    <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                                 </a>
-                            </h3>
-
-                            <p class="text-slate-400 text-xs leading-relaxed mb-4">
-                                {{ $service->short_description }}
-                            </p>
-
-                            @if(!empty($service->features))
-                                <ul class="space-y-1.5 text-xs text-slate-300 mb-6">
-                                    @foreach(array_slice($service->features, 0, 3) as $feature)
-                                        <li class="flex items-start space-x-1.5">
-                                             <span class="text-amber-400 mt-0.5">•</span>
-                                             <span>{{ $feature }}</span>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            @endif
-                        </div>
-
-                        <div class="pt-4 border-t border-slate-700/60 flex items-center justify-between">
-                            <span class="text-xs text-slate-400">Jaipur Hub & Field Mobile</span>
-                            <a href="{{ route('services.detail', $service->slug) }}" class="text-xs font-bold text-amber-400 hover:text-amber-300 inline-flex items-center">
-                                <span>Service Scope</span>
-                                <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                            </a>
+                            </div>
                         </div>
                     </div>
                 @endforeach
@@ -305,12 +330,18 @@
             <!-- Client Logos Grid -->
             <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8 gap-4 mb-16">
                 @foreach($clients as $client)
-                    <div class="bg-white p-5 rounded-xl border border-slate-200/80 shadow-xs flex flex-col justify-center items-center text-center hover:border-blue-400 transition group">
-                        <div class="w-10 h-10 rounded-full bg-slate-100 text-slate-800 font-black text-sm flex items-center justify-center mb-2 group-hover:bg-blue-600 group-hover:text-white transition">
-                            {{ substr($client->client_name, 0, 2) }}
-                        </div>
-                        <h4 class="font-extrabold text-slate-900 text-sm tracking-tight">{{ $client->client_name }}</h4>
-                        <span class="text-[11px] text-slate-500 mt-1 font-medium">{{ $client->sector }}</span>
+                    <div class="bg-white p-5 rounded-xl border border-slate-200/80 shadow-xs flex flex-col justify-center items-center text-center hover:border-blue-400 transition group min-h-[110px]">
+                        @if($client->logo)
+                            <div class="h-10 w-full flex items-center justify-center mb-2">
+                                <img src="{{ str_starts_with($client->logo, 'http') ? $client->logo : asset('storage/' . $client->logo) }}" alt="{{ $client->client_name }}" class="max-h-9 max-w-full object-contain" />
+                            </div>
+                        @else
+                            <div class="w-10 h-10 rounded-full bg-slate-100 text-slate-800 font-black text-sm flex items-center justify-center mb-2 group-hover:bg-blue-600 group-hover:text-white transition">
+                                {{ substr($client->client_name, 0, 2) }}
+                            </div>
+                        @endif
+                        <h4 class="font-extrabold text-slate-900 text-xs tracking-tight">{{ $client->client_name }}</h4>
+                        <span class="text-[10px] text-slate-500 mt-0.5 font-medium">{{ $client->sector }}</span>
                     </div>
                 @endforeach
             </div>

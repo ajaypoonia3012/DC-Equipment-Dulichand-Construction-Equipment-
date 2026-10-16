@@ -29,17 +29,23 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
-            ->brandName('DC Equipment')
-            ->favicon('/images/logo.svg')
+            ->brandName('DC Equipment Control Center | Dulichand Construction Equipment')
+            ->brandLogo(fn () => view('filament.brand-logo'))
+            ->brandLogoHeight('2.75rem')
+            ->favicon(fn () => \App\Models\CompanySetting::get('site_favicon') 
+                ? asset('storage/' . \App\Models\CompanySetting::get('site_favicon')) 
+                : asset('images/logo.svg'))
             ->colors([
                 'primary' => Color::Blue,
                 'gray' => Color::Slate,
                 'warning' => Color::Amber,
             ])
+            ->renderHook('panels::styles.after', fn () => view('filament.login-extra'))
             ->sidebarCollapsibleOnDesktop()
             ->navigationGroups([
                 'Catalog & Inventory',
                 'Operations & Projects',
+                'SEO & Marketing',
                 'Leads & Inquiries',
                 'Settings & SEO',
             ])
